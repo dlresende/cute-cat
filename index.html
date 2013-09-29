@@ -8,6 +8,7 @@
         <script src="src/js/cuteCat.js"></script>
         <script>
             var NUMBER_OF_CATS = 5;
+            var score = {};
 
             function showCats() {
                 firstCatImgIndex = nextCatIndex(null, null, NUMBER_OF_CATS);
@@ -28,13 +29,17 @@
                     <table class="catDojo">
                         <tr>
                             <td>
-                                <img id="firstCat" src="">
+                                <a onclick="incrementScore(firstCatImgIndex, score) & showCats()">
+                                    <img id="firstCat" src="">
+                                </a>
                             </td>
                             <td>
                                 <h3>VS</h3>
                             </td>
                             <td>
-                                <img id="secondCat" src="">
+                                <a onclick="incrementScore(secondCatImgIndex, score) & showCats()">
+                                    <img id="secondCat" src="">
+                                </a>
                             </td>
                         </tr>
                     </table>
