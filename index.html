@@ -17,7 +17,7 @@
                 document.getElementById("secondCat").src = getCatImg(secondCatImgIndex);
             }
 
-            function refreshScore(score) {
+            function refreshScore() {
                 var scoreTable = document.getElementById("scoreTable");
                 var scoreTableContent = "";
                 var imgIndexesSorted = sortByPoints(score);
@@ -29,6 +29,12 @@
                     scoreTableContent += "</tr>";
                 });
                 scoreTable.innerHTML = scoreTableContent;
+            }
+
+            function incrementScoreAndRefresh(catImgIndex) {
+                incrementScore(catImgIndex, score);
+                showCats();
+                refreshScore();
             }
 
             window.onload = showCats;
@@ -43,7 +49,7 @@
                     <table class="catDojo">
                         <tr>
                             <td>
-                                <a onclick="incrementScore(firstCatImgIndex, score) & showCats() & refreshScore(score)">
+                                <a onclick="incrementScoreAndRefresh(firstCatImgIndex)">
                                     <img id="firstCat" src="">
                                 </a>
                             </td>
@@ -51,7 +57,7 @@
                                 <h3>VS</h3>
                             </td>
                             <td>
-                                <a onclick="incrementScore(secondCatImgIndex, score) & showCats() & refreshScore(score)">
+                                <a onclick="incrementScoreAndRefresh(secondCatImgIndex)">
                                     <img id="secondCat" src="">
                                 </a>
                             </td>
