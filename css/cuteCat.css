@@ -12,3 +12,7 @@ a {
     height: 100px;
     width: 100px;
 }
+
+.score {
+    text-align: center;
+}
