@@ -17,6 +17,20 @@
                 document.getElementById("secondCat").src = getCatImg(secondCatImgIndex);
             }
 
+            function refreshScore(score) {
+                var scoreTable = document.getElementById("scoreTable");
+                var scoreTableContent = "";
+                var imgIndexesSorted = sortByPoints(score);
+                imgIndexesSorted.forEach(function(catImgIndex) {
+                    scoreTableContent += "<tr>";
+                    scoreTableContent += "  <td>";
+                    scoreTableContent += "      <img src='" + getCatImg(catImgIndex) + "'>";
+                    scoreTableContent += "  </td>";
+                    scoreTableContent += "</tr>";
+                });
+                scoreTable.innerHTML = scoreTableContent;
+            }
+
             window.onload = showCats;
         </script>
     </head>
@@ -29,7 +43,7 @@
                     <table class="catDojo">
                         <tr>
                             <td>
-                                <a onclick="incrementScore(firstCatImgIndex, score) & showCats()">
+                                <a onclick="incrementScore(firstCatImgIndex, score) & showCats() & refreshScore(score)">
                                     <img id="firstCat" src="">
                                 </a>
                             </td>
@@ -37,12 +51,18 @@
                                 <h3>VS</h3>
                             </td>
                             <td>
-                                <a onclick="incrementScore(secondCatImgIndex, score) & showCats()">
+                                <a onclick="incrementScore(secondCatImgIndex, score) & showCats() & refreshScore(score)">
                                     <img id="secondCat" src="">
                                 </a>
                             </td>
                         </tr>
                     </table>
+                </td>
+                <td>
+                    <div class="score">
+                        <h3>Score</h3>
+                        <table id="scoreTable" class="catScore"></table>
+                    </div>
                 </td>
             </tr>
         </table>
