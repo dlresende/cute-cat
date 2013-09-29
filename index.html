@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Cute Cat</title>
+
+        <script src="src/js/cuteCat.js"></script>
+        <script>
+            var NUMBER_OF_CATS = 5;
+
+            function showCats() {
+                firstCatImgIndex = nextCatIndex(null, null, NUMBER_OF_CATS);
+                secondCatImgIndex = nextCatIndex(firstCatImgIndex, null, NUMBER_OF_CATS);
+                document.getElementById("firstCat").src = getCatImg(firstCatImgIndex);
+                document.getElementById("secondCat").src = getCatImg(secondCatImgIndex);
+            }
+            
+            window.onload = showCats;
+        </script>
+    </head>
+	<body>
+		<h1>Which cat is the cutest?</h1>
+
+        <table>
+            <tr>
+                <td>
+                    <table class="catDojo">
+                        <tr>
+                            <td>
+                                <img id="firstCat" src="">
+                            </td>
+                            <td>
+                                <h3>VS</h3>
+                            </td>
+                            <td>
+                                <img id="secondCat" src="">
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+	</body>
+</html>
