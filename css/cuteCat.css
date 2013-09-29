@@ -3,3 +3,7 @@
     width: auto;
     overflow: visible;
 }
+
+a {
+    cursor: pointer;
+}
