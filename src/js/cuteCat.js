@@ -20,3 +20,14 @@ function incrementScore(imgCatIndex, currentScore) {
 
     return currentScore;
 }
+
+function sortByPoints(score) {
+    var indexes = [];
+
+    for(var index in score)
+        indexes.push(index);
+
+    return indexes.sort(function(e1, e2) {
+        return score[e2] - score[e1];
+    });
+}
