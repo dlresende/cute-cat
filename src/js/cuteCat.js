@@ -9,3 +9,14 @@ function nextCatIndex(firstCat, secondCat, numberOfCats) {
 
     return imgIndex;
 }
+
+function incrementScore(imgCatIndex, currentScore) {
+    if(currentScore[imgCatIndex])
+        currentScore[imgCatIndex]++;
+    else
+        currentScore[imgCatIndex] = 1;
+
+    console.log("New score: " + JSON.stringify(currentScore))
+
+    return currentScore;
+}
