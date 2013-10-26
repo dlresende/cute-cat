@@ -3,7 +3,7 @@ module.exports = function(grunt) {
 		pkg: grunt.file.readJSON('package.json'),
 		qunit: {
 			files: ['test/**/*.html']
-		},
+		}
 	});
 
 	grunt.loadNpmTasks('grunt-contrib-qunit');
