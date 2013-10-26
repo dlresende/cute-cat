@@ -18,8 +18,14 @@ test( "given a cat image index and the general score, should increment the score
     deepEqual(incrementScore(2, {"1":1, "2":0, "3":3}), {"1":1, "2":1, "3":3});
 });
 
-test( "given a map containing the scores, should return an array of cat indexes sorted in descending order of points.", function() {
+test( "given a map containing the scores, should return an array of cat indexes sorted in descending order of points", function() {
     deepEqual(sortByPoints({"1":1, "2":2}), ["2", "1"]);
     deepEqual(sortByPoints({"1":3, "2":2, "3":0}), ["1", "2", "3"]);
     deepEqual(sortByPoints({}), []);
+});
+
+test ( "given a list with img indexes, should return an array with the corresponding relative path locations", function() {
+    deepEqual(getCatImgs([]), []);
+    deepEqual(getCatImgs([1]), ["images/cat1.jpg"]);
+    deepEqual(getCatImgs([1, 2]), ["images/cat1.jpg", "images/cat2.jpg"]);
 });

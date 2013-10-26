@@ -2,6 +2,16 @@ function getCatImg(imgIndex)  {
     return "images/cat" + imgIndex + ".jpg";
 }
 
+function getCatImgs(imgIndexes)  {
+    var images = [];
+
+    imgIndexes.forEach(function(imgIndex) {
+        images.push(getCatImg(imgIndex));
+    });
+
+    return images;
+}
+
 function nextCatIndex(firstCat, secondCat, numberOfCats) {
     do {
         var imgIndex = Math.floor((Math.random() * numberOfCats) + 1);
@@ -16,7 +26,7 @@ function incrementScore(imgCatIndex, currentScore) {
     else
         currentScore[imgCatIndex] = 1;
 
-    console.log("New score: " + JSON.stringify(currentScore))
+    console.log("New score: " + JSON.stringify(currentScore));
 
     return currentScore;
 }

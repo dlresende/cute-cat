@@ -22,6 +22,7 @@
   "devDependencies": {
     "grunt": "~0.4.1",
     "grunt-contrib-qunit": "~0.2.2",
-    "qunitjs": "~1.12.0"
+    "qunitjs": "~1.12.0",
+    "mustache": "~0.7.2"
   }
 }

@@ -5,6 +5,7 @@
 
         <link rel="stylesheet" href="css/cuteCat.css">
 
+        <script src="node_modules/mustache/mustache.js"></script>
         <script src="src/js/cuteCat.js"></script>
         <script>
             var NUMBER_OF_CATS = 5;
@@ -18,17 +19,10 @@
             }
 
             function refreshScore() {
-                var scoreTable = document.getElementById("scoreTable");
-                var scoreTableContent = "";
                 var imgIndexesSorted = sortByPoints(score);
-                imgIndexesSorted.forEach(function(catImgIndex) {
-                    scoreTableContent += "<tr>";
-                    scoreTableContent += "  <td>";
-                    scoreTableContent += "      <img src='" + getCatImg(catImgIndex) + "'>";
-                    scoreTableContent += "  </td>";
-                    scoreTableContent += "</tr>";
-                });
-                scoreTable.innerHTML = scoreTableContent;
+                var catImgs = getCatImgs(imgIndexesSorted);
+                var template = '{{#.}}<tr><td><img src="{{.}}"></td></tr>{{/.}}';
+                document.getElementById("scoreTable").innerHTML = Mustache.render(template, catImgs);
             }
 
             function incrementScoreAndRefresh(catImgIndex) {
